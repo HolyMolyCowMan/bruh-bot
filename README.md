@@ -1,1 +1,1 @@
-# Private discord bruh bot rewritten in javascript
+# Ryan's Bruh Bot
