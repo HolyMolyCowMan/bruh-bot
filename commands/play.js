@@ -55,17 +55,18 @@ module.exports = {
 			option.setName('channel')
 				.setDescription('The channel to play the sound in')
 				.setRequired(false)),
+
 	// The code to run
 	async execute(interaction) {
 		const soundName = interaction.options.getString('name');
-		const channelFromMessage = interaction.options.getChannel('channel');
+		const messageChannel = interaction.options.getChannel('channel');
 		let channel;
 
 		// If it is a valid sound
 		if (sounds.has(soundName)) {
 			// If the channel is set
-			if (channelFromMessage) {
-				channel = await interaction.guild.channels.fetch(channelFromMessage.id);
+			if (messageChannel) {
+				channel = await interaction.guild.channels.fetch(messageChannel.id);
 			}
 			// If the channel isn't provided, use the users
 			else {
