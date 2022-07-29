@@ -78,7 +78,7 @@ module.exports = {
 			await interaction.reply(`Playing: '${soundName}' in ${channel.name}`);
 
 			player.on('stateChange', (oldState, newState) => {
-				if (oldState.status === AudioPlayerStatus.Playing && newState.status === AudioPlayerStatus.Idle) {
+				if (oldState.status === AudioPlayerStatus.Playing && newState.status === AudioPlayerStatus.Idle && connection.state.status === VoiceConnectionStatus.Ready) {
 					connection.destroy();
 				}
 			});
