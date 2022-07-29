@@ -20,5 +20,8 @@ RUN apk add ffmpeg
 
 # Copy over source code
 COPY . .
+
+RUN node deploy-commands.js
+
 EXPOSE 8080
 CMD [ "node", "index.js" ]
